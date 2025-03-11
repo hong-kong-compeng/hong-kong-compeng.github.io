@@ -1,47 +1,108 @@
-# Compiler Organization Group
+# Hong Kong CompEng group website
 
-This project is a Jekyll website for the Compiler Organization, aimed at fostering a community around compiler development and functional programming, particularly using OCaml.
+## Software stack
 
-## Project Structure
+The content is written in
+[Markdown](https://www.markdownguide.org/getting-started/), which is
+transformed into web pages by [Jekyll](https://jekyllrb.com/). The
+content is stored on GitHub, which automatically handles deployment to
+[GitHub Pages](https://pages.github.com/).
 
-- **_config.yml**: Contains configuration settings for the Jekyll site, including theme and site-wide settings.
-- **_layouts/default.html**: Defines the default layout for the pages, including common HTML structure, header, and footer.
-- **_posts**: Directory for future blog posts related to compiler development (currently empty).
-- **_includes**: Directory for reusable components (currently empty).
-- **index.md**: Main page of the website containing the group description.
-- **README.md**: Documentation for the project, including setup and running instructions.
+## Project setup
 
-## Getting Started
+First install the dependencies (installation procedure varies by
+operating system and/or distribution):
 
-To set up and run the Jekyll site, follow these steps:
+* [Ruby](https://www.ruby-lang.org/en/) including
+  [Bundler](https://bundler.io/) which is used to install Jekyll
+* Dependencies for Jekyll:
+    * [GCC](https://gcc.gnu.org/)
+    * [Make](https://www.gnu.org/software/make/)
+    * Ruby development headers (typically installed automatically with
+      Ruby, except on Linux)
 
-1. **Install Jekyll**: Ensure you have Ruby and Bundler installed. Then, install Jekyll by running:
-   ```
-   gem install jekyll bundler
-   ```
+Then use Bundler to install Jekyll:
 
-2. **Clone the Repository**: Clone this repository to your local machine:
-   ```
-   git clone <repository-url>
-   cd my-compiler-organization
-   ```
+    $ bundle install
 
-3. **Install Dependencies**: Install the required gems:
-   ```
-   bundle install
-   ```
+Now you can build and run the website locally:
 
-4. **Run the Jekyll Server**: Start the Jekyll server to view the site locally:
-   ```
-   bundle exec jekyll serve
-   ```
+    $ bundle exec jekyll serve
 
-5. **Access the Site**: Open your web browser and go to `http://localhost:4000` to view the site.
+Navigate to <http://localhost:4000> to see it. (With the default
+configuration the site will be instead at
+<http://localhost:4000/example-website/>.)
 
-## Contributing
+Changes to site content will be reflected automatically as soon as you
+refresh the page on your browser. However, changes to `_config.yml`,
+which controls information such as the pages shown in the navbar, will
+require you to ctrl-c and restart the `jekyll serve` command.
 
-Contributions are welcome! If you have ideas for blog posts, improvements, or features, feel free to submit a pull request.
+## Files
 
-## License
+    index.md
+    about.md
+    example/index.md
+    example/subpage.md
 
-This project is licensed under the MIT License. See the LICENSE file for more details.
+Site content (name of the file is the URL it will use on the website;
+the special name `index` is used to create a page with a trailing
+slash, traditionally used for overviews or listings).
+
+    _config.yml
+
+Website configuration, including name, description, URL (this must be
+updated when you deploy the website to your own GitHub Pages
+location), and the pages displayed in the navbar at the top:
+
+    404.html
+
+Source code for page that is displayed when the user goes to a page
+that doesn't exist.
+
+    _site
+
+The generated site (i.e. the HTML that was created based on the
+Markdown content).
+
+    Gemfile
+    Gemfile.lock
+
+Files that are used by Bundler to describe the dependencies (i.e.,
+Jekyll) of the website. Read about [Bundler](https://bundler.io/) to
+learn how to edit them.
+
+    .bundle/config
+    .bundle/gem
+
+Internal files used by Bundler to manage installation.
+
+    _includes/header.html
+    _includes/head.html
+
+Source code used to customize how parts of the website are generated.
+Hopefully these don't need to be changed. They are copied from the
+source code of the Jekyll theme in use,
+[Minima](https://github.com/jekyll/minima), and then slightly modified
+as follows:
+
+* Add [MathJax](https://www.mathjax.org/) (`head.html`)
+* Change navbar to be controlled by an explicit list in `_config.yml`
+  rather than automatically listing every single page on the website
+  (which obviously would be a mess with more than five pages)
+  (`header.html`).
+
+If you change to a different theme, three steps are required: change
+`_config.yml`, update the Bundler dependencies, and then copy the
+relevant include files from the new theme and apply the same changes
+as mentioned above (maybe one or both won't be needed, depending on
+which theme is selected).
+
+    .git
+    .gitignore
+
+Used by the version control system, [Git](https://git-scm.com/).
+
+    .jekyll-cache
+
+Junk, automatically generated.
