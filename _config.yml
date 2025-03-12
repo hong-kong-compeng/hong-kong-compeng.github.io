@@ -4,7 +4,7 @@ url: "https://hong-kong-compeng.github.io"
 # Remove the following line if you are serving your website at your
 # github.io home page rather than at a sub-page (in my case
 # https://raxod502.github.io/example-website).
-baseurl: "/web"
+baseurl: ""
 description: "A community for anyone passionate about compiler development using OCaml."
 navbar:
   - title: About
