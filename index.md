@@ -3,6 +3,10 @@ layout: home
 title: "Home"
 ---
 
+[![Join our Meetup](https://secure.meetupstatic.com/photos/event/8/6/8/6/highres_488327686.jpeg)](https://www.meetup.com/hong-kong-building-a-compiler-group)
+
+[Register for the event here](https://www.meetup.com/hong-kong-building-a-compiler-group)
+
 Are you interested in compilers, functional programming, or exploring the intricate language design process? This group dives into the fascinating world of compiler development using OCaml!
 
 We are an ongoing community for anyone passionate about the stages of building a compiler—from syntax analysis to semantic analysis—and everything in between. Whether you’re just starting or you’re a seasoned compiler enthusiast, this group is a great place to:
