@@ -10,7 +10,7 @@ navbar:
   - title: About
     path: /about
   - title: Roadmap
-    path: /example/
+    path: /roadmap/
   # - title: Subpage
   #   path: /example/subpage
 theme: minima
